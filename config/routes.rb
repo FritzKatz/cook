@@ -1,5 +1,6 @@
 Cook::Application.routes.draw do
-  get "users/index"
+  resources :users
+  #get "users/index"
 
   #get "pages/home"
   root to: 'pages#home'
