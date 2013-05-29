@@ -1,7 +1,10 @@
 Cook::Application.routes.draw do
+  get "users/index"
+
   #get "pages/home"
   root to: 'pages#home'
   match '/about',   to: 'pages#about', via: 'get'
+  match '/index', to: 'users#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
