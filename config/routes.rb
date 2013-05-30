@@ -6,6 +6,8 @@ Cook::Application.routes.draw do
   root to: 'pages#home'
   match '/about',   to: 'pages#about', via: 'get'
   match '/index', to: 'users#index'
+  match '/new', to: 'users#new'
+  match '/edit', to: 'users#edit'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

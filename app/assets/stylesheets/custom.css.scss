@@ -246,3 +246,32 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+
+/* table */
+
+table {
+  margin: 0px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 1px solid black;
+  th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: #eaeaea;
+  }
+  th, td {
+  padding: 4px;
+  text-align: center;
+  }
+  th.hilite {
+  background-color: yellow;
+  }
+}
+
+/* admin actions */
+
+.actions {
+  margin-top: 10px;
+  padding-top: 10px;
+}
