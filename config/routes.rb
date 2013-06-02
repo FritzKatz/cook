@@ -1,10 +1,15 @@
 Cook::Application.routes.draw do
   resources :users
-  #get "users/index"
+  resources :users do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+  
 
   #get "pages/home"
   root to: 'pages#home'
-  match '/about',   to: 'pages#about', via: 'get'
+  match '/about', to: 'pages#about', via: 'get'
   match '/index', to: 'users#index'
   match '/new', to: 'users#new'
   match '/edit', to: 'users#edit'

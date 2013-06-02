@@ -1,34 +1,30 @@
 <% provide(:title, 'Administer Users') %>
 <h1>Administer Users</h1>
+<%= form_tag destroy_multiple_users_path, method: :delete, :id => "Users_list"  do %>
 <table id='Users'>
 	<thead>
 		<tr>
 			<th>NAME</th>
 			<th>E-MAIL</th>
 			<th>CREATED_AT</th>
-			<th></th>
+			<th>SELECT</th>
 		</tr>
 	</thead>
 	<tfoot>
 	</tfoot>
-	<tbody>
-		<% @users.each do |user| %>
+	<tbody>				
+		<% @users.each do |user| %>		
 		<tr>
-			<td><%= user.name %></td>
+			<td><%= link_to "#{user.name}", edit_user_path(user) %></td>
 			<td><%= user.email %></td>
 			<td><%= user.created_at %></td>
-			<td><%= check_box_tag "user_id", user.id %></td>						
+			<td><%= check_box_tag "user_ids[]", user.id %></td>			
 		</tr>
-		<% end %>
+		<% end %>		
 	</tbody>
 </table>
+<% end %>
 <div class="actions">
-<%= link_to "New User", new_path %>
-|
-<%= link_to "Edit User", edit_path %>
-|
-<%= link_to "Delete User", index_path(@user), :method => 'delete', data: { confirm: "Are you sure?"} %>
-|
-<%= submit_tag 'Delete', :name =>'commit', :value => 'Delete', 
-:confirm => 'Are you sure?' %>
+<%= link_to "New User", new_path %> |
+<%= link_to 'Delete User(s)', "#", :onclick => "$('#Users_list').submit()" %>
 </div>

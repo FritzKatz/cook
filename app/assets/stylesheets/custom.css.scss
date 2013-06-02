@@ -259,11 +259,12 @@ table {
   border: 2px solid white;
   font-weight: bold;
   background-color: #eaeaea;
+  text-align: center;
   }
   th, td {
   padding: 4px;
-  text-align: center;
-  }
+  text-align: center;  
+  } 
   th.hilite {
   background-color: yellow;
   }
