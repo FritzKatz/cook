@@ -1,18 +1,28 @@
 Cook::Application.routes.draw do
-  resources :users
+  resources :users  
   resources :users do
     collection do
       delete 'destroy_multiple'
     end
   end
+
+  resources :sessions, only: [:new, :create, :destroy]
   
 
   #get "pages/home"
   root to: 'pages#home'
+
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
   match '/about', to: 'pages#about', via: 'get'
+  match '/topdf', to: 'pages#topdf', via: 'get'
+
   match '/index', to: 'users#index'
   match '/new', to: 'users#new'
   match '/edit', to: 'users#edit'
+
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

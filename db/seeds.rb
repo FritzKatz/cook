@@ -17,4 +17,5 @@ User.create(name: "Example8", email: "user8@gmail.com", password: "foobar", pass
 User.create(name: "Example9", email: "user9@gmail.com", password: "foobar", password_confirmation: "foobar")
 User.create(name: "Example10", email: "user10@gmail.com", password: "foobar", password_confirmation: "foobar")
 User.create(name: "Example11", email: "user11@gmail.com", password: "foobar", password_confirmation: "foobar")
+User.create(name: "test", email: "test@gmail.com", password: "foobar", password_confirmation: "foobar")
 

@@ -1,0 +1,18 @@
+<% provide(:title, 'toPDF') %>
+<div class="center hero-unit">
+  <h1>Los geht's!</h1> 
+</div>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_tag('/result')  do %>
+
+      <%= text_field_tag 'Name of the dish' %>
+      <%= text_area_tag 'Ingredients', :rows => 20, :cols => 1 %>           
+
+      <%= submit_tag "Create recipe", :name => "create", class: "btn btn-medium btn-primary" %>
+      <%= submit_tag "Cancel", :name => "cancel", class: "btn btn-medium btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

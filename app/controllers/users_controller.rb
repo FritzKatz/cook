@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+	before_filter :signed_in_user, only: [:create]
+	before_filter :admin_user, only: :destroy
+	
   def index
   	@users = User.all
   end
@@ -6,6 +9,10 @@ class UsersController < ApplicationController
 
   def new
   	@user = User.new  		
+	end
+
+	def show
+
 	end
 
 
