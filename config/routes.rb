@@ -1,4 +1,6 @@
 Cook::Application.routes.draw do
+  get "recipes/new"
+
   resources :users  
   resources :users do
     collection do

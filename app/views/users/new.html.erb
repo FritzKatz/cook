@@ -15,10 +15,15 @@
       <%= f.password_field :password %>
 
       <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>      
+      <%= f.password_field :password_confirmation %>
 
-      <%= f.submit "Create account", :name => "create", class: "btn btn-medium btn-primary" %>
-      <%= f.submit "Cancel", :name => "cancel", class: "btn btn-medium btn-primary" %>
+      <%= f.label "Admin", class: "checkbox-inline" do %>Admin
+      <%= f.check_box :admin %>
+      <% end %>  
+           
+
+      <%= f.submit "Create account", :name => "create", class: "btn btn-default btn-primary" %>
+      <%= f.submit "Cancel", :name => "cancel", class: "btn btn-default" %>
     <% end %>
 
   </div>

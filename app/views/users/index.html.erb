@@ -1,7 +1,7 @@
 <% provide(:title, 'Administer Users') %>
 <h1>Administer Users</h1>
 <%= form_tag destroy_multiple_users_path, method: :delete, :id => "Users_list"  do %>
-<table id='Users'>
+<table id='Users' class="table table-hover">
 	<thead>
 		<tr>
 			<th>NAME</th>

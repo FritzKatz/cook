@@ -4,18 +4,19 @@
 </div>
 
 <div class="row">
-  <div class="span8 offset2">
+  <div class="span8 offset2 form-horizontal">
     <%= form_tag('/result')  do %>   
 
       <p><h3>Name des Gerichts</p></h3>
       <%= text_field_tag 'Name of the dish' %>
-      <p>Zuaten für</p><%= number_field_tag 'Number of Persons', nil, :max => 5 %><p></p>      
+      <p>Zuaten für</p><%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe, class: "span1" %>
+      <p></p>      
       <%= text_area_tag 'Ingredients', "", :size => "1x15" %>
       <p>Zubereitung:</p>
-      <%= text_area_tag 'Preparation', "", :size => "1x15" %>          
+      <%= text_area_tag 'Preparation', "", :size => "1x25" %>          
 
-      <%= submit_tag "Create recipe", :name => "create", class: "btn btn-medium btn-primary" %>
-      <%= submit_tag "Cancel", :name => "cancel", class: "btn btn-medium btn-primary" %>
+      <%= submit_tag "Create recipe", :name => "create", class: "btn btn-default btn-primary" %>
+      <%= submit_tag "Cancel", :name => "cancel", class: "btn btn-default" %>
     <% end %>
 
   </div>
