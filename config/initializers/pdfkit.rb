@@ -1,12 +1,15 @@
 PDFKit.configure do |config|
+
+  config.wkhtmltopdf = '/rl/local/cook/bin' if Rails.env.development?
+
  
-  if ["development"].include?(Rails.env)
-    #only if your are working on 32bit machine
-    config.wkhtmltopdf = Rails.root.join('bin', 'wkhtmltopdf-i386').to_s
-  else
-    #if your site is hosted on heroku or any other hosting server which is 64bit
-    config.wkhtmltopdf = Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
-  end
+  # if ["development"].include?(Rails.env)
+  #   #only if your are working on 32bit machine
+  #   config.wkhtmltopdf = Rails.root.join('bin', 'wkhtmltopdf-i386').to_s
+  # else
+  #   #if your site is hosted on heroku or any other hosting server which is 64bit
+  #   config.wkhtmltopdf = Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s
+  # end
  
   config.default_options = {
     :encoding=>"UTF-8",

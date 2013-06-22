@@ -273,6 +273,36 @@ table {
 */
 /* admin actions */
 
+/* preview */
+
+.preview {
+  border: 1px solid black;
+  padding: 20px;
+  padding-top: 35px;
+  padding-bottom: 25px;
+  h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    line-height: 40px;
+  }
+  h3 {
+    font-size: 16px;
+    font-style: italic;
+    color: black;
+    text-align: left;
+    line-height: 30px;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+    text-align: left;
+    line-height: normal;
+  }
+}
+
 .actions {
   margin-top: 10px;
   padding-top: 10px;

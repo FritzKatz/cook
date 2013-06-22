@@ -1,0 +1,30 @@
+<% provide(:title, 'toPDF') %>
+<div class="center hero-unit">
+  <h1>Los geht's!</h1> 
+</div>
+
+<div class="row">
+  <div class="span8 offset2">
+
+    <%= form_for @recipe do |f| %>
+
+      <p><h3>Name des Gerichts:</h3></p>
+      <%= f.text_field :title %>
+
+      <p>Zuaten für</p>
+      <%= f.number_field :persons %>
+      
+      <%= f.text_area :ingredients, :size => "1x15" %>
+
+      <p>Zubereitung:</p>
+      <%= f.text_area :preparation, :size => "1x25" %>
+
+      <p>Vorschaubild:</p>
+      <%= f.file_field :image %>       
+      <p></p>  
+           
+      <%= f.submit "Create recipe", :name => "create", class: "btn btn-default btn-primary" %>
+      <%= f.submit "Cancel", :name => "cancel", class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>

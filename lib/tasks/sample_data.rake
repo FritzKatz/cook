@@ -1,7 +1,8 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-    make_users    
+    make_users
+    make_recipes    
   end
 end
 
@@ -11,7 +12,7 @@ def make_users
                        password: "foobar",
                        password_confirmation: "foobar")
   admin.toggle!(:admin)
-  99.times do |n|
+  10.times do |n|
     name = Faker::Name.name
     email = "example-#{n+1}@gmail.com"
     password = "password"
@@ -20,4 +21,11 @@ def make_users
                  password: password,
                  password_confirmation: password)
   end
+end
+
+def make_recipes
+  Recipe.create!(title: "Example Recipe",
+                 persons: "4",
+                 ingredients: "foobar, lagerregal",
+                 preparation: "Shovel foobar, quick and lovely")  
 end

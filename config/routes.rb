@@ -1,5 +1,5 @@
 Cook::Application.routes.draw do
-  get "recipes/new"
+  #get "recipes/new"
 
   resources :users  
   resources :users do
@@ -9,6 +9,8 @@ Cook::Application.routes.draw do
   end
 
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :recipes
   
 
   #get "pages/home"
@@ -18,11 +20,14 @@ Cook::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/about', to: 'pages#about', via: 'get'
-  match '/topdf', to: 'pages#topdf', via: 'get'
+  #match '/topdf', to: 'pages#topdf', via: 'get'
 
   match '/index', to: 'users#index'
   match '/new', to: 'users#new'
   match '/edit', to: 'users#edit'
+
+  match '/topdf', to: 'recipes#topdf'
+  match '/preview', to: 'recipes#preview'
 
   
 

@@ -7,10 +7,11 @@
 #  persons     :integer
 #  ingredients :text
 #  preparation :text
+#  image       :binary
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
 class Recipe < ActiveRecord::Base
-  attr_accessible :ingredients, :persons, :preparation, :title
+  attr_accessible :image, :ingredients, :persons, :preparation, :title
 end

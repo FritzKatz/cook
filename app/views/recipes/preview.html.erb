@@ -1,0 +1,39 @@
+<% provide(:title, 'Preview') %>
+<div class="center hero-unit">
+  <h1>Vorschau</h1> 
+</div>
+
+<%= form_tag 'pdf', method: :post do %>
+<div class="row">
+  	<div class="span10 offset1">
+  		<div class="preview">
+
+<h2><%= @recipe.title %></h2>
+<p></p>
+
+<%= @recipe.image %>
+<p></p>
+
+<h3>Zutaten für <%= @recipe.persons %> Personen:</h3>
+
+<p></p>
+<ul>
+	<li>
+<h4><%= (@recipe.ingredients).gsub(/\r\n/, "<li>").html_safe %></h4>
+</ul>
+<p></p>
+
+<h3>Zubereitung:</h3>
+<p></p>
+<h4><%= (@recipe.preparation).gsub(/\r\n/, "<br/>").html_safe %></h4>
+<p></p>
+
+		</div>
+		<br/>
+
+		<%= submit_tag "Save to PDF", :name => "save", class: "btn btn-default btn-primary" %>
+      	<%= submit_tag "Cancel", :name => "cancel", class: "btn btn-default" %>
+    <% end %>
+
+	</div>
+</div>

@@ -1,2 +1,79 @@
 <h1>Recipes#new</h1>
 <p>Find me in app/views/recipes/new.html.erb</p>
+
+<div class="row">
+  <div class="span8 offset2">   
+
+    <%= form_for @recipe do |f| %>
+
+      <p><h3>Name des Gerichts</p></h3>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <p>Zutaten für</p>
+      <%= f.label :persons %>
+      <%= f.text_field :persons %>
+      <p>Personen:</p>
+
+      <%= f.label :ingredients %>
+      <%= f.text_area :ingredients, :size => "1x15" %>
+
+      <p>Zubereitung:</p>
+      <%= f.label :preparation %>
+      <%= f.text_area :preparation, :size => "1x25" %>
+
+      <p>So könnte das aussehen:</p>
+      <%= f.label :image %>Admin
+      <%= f.file_field :image %>
+    <% end %>
+
+      <%= f.submit "Create recipe", :name => "create", class: "btn btn-default btn-primary" %>
+      <%= f.submit "Cancel", :name => "cancel", class: "btn btn-default" %>
+    <% end %> 
+
+  </div>
+</div>
+
+<%= form_for @user do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.label "Admin", class: "checkbox-inline" do %>Admin
+      <%= f.check_box :admin %>
+      <% end %>  
+           
+
+      <%= f.submit "Create account", :name => "create", class: "btn btn-default btn-primary" %>
+      <%= f.submit "Cancel", :name => "cancel", class: "btn btn-default" %>
+    <% end %>
+
+
+<div class="row">
+  <div class="span8 offset2">
+    <%= form_tag('/result')  do %>   
+
+      <p><h3>Name des Gerichts</p></h3>
+      <%= text_field_tag 'Name of the dish' %>
+      <p>Zuaten für</p><%= select_tag "count", "<option>1</option><option>2</option><option>3</option><option>4</option>".html_safe, class: "span1" %>
+      <p></p>      
+      <%= text_area_tag 'Ingredients', "", :size => "1x15" %>
+      <p>Zubereitung:</p>
+      <%= text_area_tag 'Preparation', "", :size => "1x25" %>          
+
+      <%= submit_tag "Create recipe", :name => "create", class: "btn btn-default btn-primary" %>
+      <%= submit_tag "Cancel", :name => "cancel", class: "btn btn-default" %>
+    <% end %>
+
+  </div>
+</div>
+

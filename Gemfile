@@ -7,7 +7,6 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails', '2.0.2'
-#gem 'wkhtmltopdf'
 gem 'pdfkit', '0.5.3'
 
 
@@ -20,6 +19,7 @@ group :development, :test do
   gem 'spork', '0.9.2'  
   # gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'debugger', :require => 'ruby-debug'
+  gem 'unicorn'
 end
 
 group :development do
