@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 
-  def index
+  def recipe_index
   	@recipes = Recipe.all
   end
 
@@ -18,18 +18,34 @@ class RecipesController < ApplicationController
   		if @recipe.save
   			redirect_to preview_path			
   		else
-  			render 'new'
-  			flash[:notice] = "A problem occurred. PANIC!"
+  			render 'topdf'
+  			# flash[:notice] = "A problem occurred. PANIC!"
   		end
-  	elsif params[:cancel]
+  	elsif params[:reset]      
   		redirect_to topdf_path
   	end
 	end
 
-  def save_to_pdf
-    html = render_to_string(:action => '../pdf/my_template', :layout => false)
-    pdf = PDFKit.new(html)
-    send_data(pdf.to_pdf)
+  # def save_to_pdf
+  #   html = render_to_string(:action => '../pdf/my_template', :layout => false)
+  #   pdf = PDFKit.new(html)
+  #   send_data(pdf.to_pdf)
+  # end
+
+  def destroy
+    if params[:recipe_ids].nil?
+      flash[:error] = "No recipe/s selected."
+      redirect_to recipe_index_path
+    else
+      @recipes = Recipe.find(params[:recipe_ids])
+      @recipes.each do |recipe|
+        recipe.destroy
+      end
+      #User.find(params[:user_id]).destroy
+      # @user.destroy
+      flash[:notice] = "Recipe(s) was/were successfully deleted."
+      redirect_to recipe_index_path
+    end
   end
 
 

@@ -8,9 +8,16 @@ Cook::Application.routes.draw do
     end
   end
 
+  resources :recipes
+  resources :recipes do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :recipes
+  
   
 
   #get "pages/home"
@@ -26,8 +33,9 @@ Cook::Application.routes.draw do
   match '/new', to: 'users#new'
   match '/edit', to: 'users#edit'
 
+  match '/recipe_index', to: 'recipes#recipe_index'
   match '/topdf', to: 'recipes#topdf'
-  match '/preview', to: 'recipes#preview'
+  match '/preview', to: 'recipes#preview'  
 
   
 

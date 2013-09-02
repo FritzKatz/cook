@@ -14,4 +14,11 @@
 
 class Recipe < ActiveRecord::Base
   attr_accessible :image, :ingredients, :persons, :preparation, :title
+
+  validates :title, :persons, :ingredients, :preparation, presence: true
+  validates :persons, length: { maximum: 1 }, numericality: { only_integer: true, less_than: 5 }
+
+  #validates :title, presence: true
+  #validates :title, presence: true
+
 end

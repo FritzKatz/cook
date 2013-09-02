@@ -5,7 +5,8 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li> 
-          <% if signed_in? %>            
+          <% if signed_in? %>
+            <li><%= link_to "Recipes", recipe_index_path %></li>             
             <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
           <% else %>
             <li><%= link_to "Sign in", signin_path %></li>

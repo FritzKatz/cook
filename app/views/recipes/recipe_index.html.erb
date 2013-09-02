@@ -1,0 +1,28 @@
+<% provide(:title, 'Manage Recipes') %>
+<h1>Manage Recipes</h1>
+<%= form_tag destroy_multiple_recipes_path, method: :delete, :id => "Recipes_list"  do %>
+<table id='Recipes' class="table table-hover">
+	<thead>
+		<tr>
+			<th>TITLE</th>			
+			<th>CREATED_AT</th>
+			<th>SELECT</th>
+		</tr>
+	</thead>
+	<tfoot>
+	</tfoot>
+	<tbody>				
+		<% @recipes.each do |recipe| %>		
+		<tr>
+			<td><%= link_to "#{recipe.title}", edit_recipe_path(recipe) %></td>			
+			<td><%= recipe.created_at %></td>
+			<td><%= check_box_tag "recipe_ids[]", recipe.id %></td>			
+		</tr>
+		<% end %>		
+	</tbody>
+</table>
+<% end %>
+<div class="actions">
+<%= link_to 'Delete Recipe(s)', "#", :onclick => "$('#Recipes_list').submit()" %> |
+<%= link_to "New Recipe", topdf_path %>
+</div>
